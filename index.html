@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Annu Maan Jao - From Tuggu</title>
+    <style>
+        :root { --primary: #ff4d6d; --bg: #fff0f3; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body {
+            background-color: var(--bg);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 10px;
+        }
+        .card {
+            background: white; width: 100%; max-width: 450px; border-radius: 20px;
+            padding: 20px; box-shadow: 0 10px 25px rgba(255, 77, 109, 0.2);
+            border: 3px solid var(--primary); text-align: center;
+        }
+        .desi-box {
+            background: #fff8f9; border-radius: 12px; padding: 10px;
+            font-size: 1.1rem; color: #d90429; font-weight: bold; margin-bottom: 10px;
+            border-left: 5px solid var(--primary);
+        }
+        .btn-step { display: none; animation: fadeIn 0.5s; }
+        .gif-wrapper { margin-bottom: 15px; border-radius: 10px; overflow: hidden; }
+        button {
+            background: var(--primary); color: white; border: none; width: 100%;
+            padding: 15px; border-radius: 50px; font-size: 1.2rem; font-weight: bold;
+            cursor: pointer; box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+        }
+        #no-btn { background: #adb5bd; margin-top: 10px; font-size: 0.9rem; padding: 10px; width: 50%; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="sorry.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h2 style="color:var(--primary); margin-top:0;">Annu BRO, Maan Jao! 🥺</h2>
+
+    <div id="s1" class="btn-step" style="display: block;">
+        <div class="desi-box">"Chasimila Mittar, gussa thuk do ab!"</div>
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="7415203319023629232" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/excuses-so-sorry-sorry-apology-excuse-gif-7415203319023629232">Excuses So Sorry Sticker</a></div>
+        </div>
+        <button onclick="startApp(2)">Click to Hear Music & Apology 🎵</button>
+    </div>
+
+    <div id="s2" class="btn-step">
+        <div class="desi-box">"Maana main idiot hoon, par tera hi hoon!"</div>
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="17859656" data-share-method="host" data-aspect-ratio="1.15942" data-width="100%"><a href="https://tenor.com/view/sorry-apologies-sad-brown-brown-im-so-sorry-gif-17859656">Sorry Apologies Sticker</a></div>
+        </div>
+        <button onclick="move(3)">Still Gussa? Next Dekho...</button>
+    </div>
+
+    <div id="s3" class="btn-step">
+        <div class="desi-box">"Bandar jaisa mooh mat banao, sorry na!"</div>
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="6560892845648941363" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/monkey-animal-apolozize-sorry-beg-gif-6560892845648941363">Monkey Animal Sticker</a></div>
+        </div>
+        <button onclick="move(4)">Pakka Promise, Galti Nahi Hogi!</button>
+    </div>
+
+    <div id="s4" class="btn-step">
+        <div class="desi-box">"Tuggu is bowing down! Ab toh maaf kardo?"</div>
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="13168932" data-share-method="host" data-aspect-ratio="1.16667" data-width="100%"><a href="https://tenor.com/view/sad-sorry-bow-gif-13168932">Sad Sorry Sticker</a></div>
+        </div>
+        <button onclick="move(5)">One More Click Plzzz...</button>
+    </div>
+
+    <div id="s5" class="btn-step">
+        <div class="desi-box">"UNBLOCK KARDO CHUP-CHAP!"</div>
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="6074852091416251324" data-share-method="host" data-aspect-ratio="1.32597" data-width="100%"><a href="https://tenor.com/view/unblock-cat-pray-beg-gif-6074852091416251324">Unblock Cat GIF</a></div>
+        </div>
+        <button onclick="move(6)">Final Surprise 🎁</button>
+    </div>
+
+    <div id="s6" class="btn-step">
+        <div class="desi-box">"Yay! Annu is the best bestie ever!"</div>
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="13052736755953827912" data-share-method="host" data-aspect-ratio="0.841365" data-width="100%"><a href="https://tenor.com/view/marisa-marisa-kirisame-touhou-touhou-project-unblock-gif-13052736755953827912">Marisa Marisa Kirisame GIF</a></div>
+        </div>
+        <button onclick="done()">I Forgive You, Tuggu ❤️</button>
+        <button id="no-btn" onmouseover="runAway(this)" ontouchstart="runAway(this)">No 😡</button>
+    </div>
+
+</div>
+
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+<script>
+    let audio = document.getElementById('bgMusic');
+
+    function startApp(step) {
+        audio.play(); // Play music on first tap
+        move(step);
+    }
+
+    function move(step) {
+        document.querySelectorAll('.btn-step').forEach(s => s.style.display = 'none');
+        document.getElementById('s' + step).style.display = 'block';
+    }
+
+    function runAway(btn) {
+        btn.style.position = 'fixed';
+        btn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+        btn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+    }
+
+    function done() {
+        alert("Yay! Ab smile karo aur Tuggu ko message kardo! 🎉");
+        location.reload();
+    }
+</script>
+</body>
+</html>
